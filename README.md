@@ -1,5 +1,5 @@
 # Rules
-自用Quantumult X、 Shadowrocket规则
+自用Passwa11规则
 
 ## GeoIP 数据库
 ```
