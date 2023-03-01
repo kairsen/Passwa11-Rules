@@ -1,2 +1,3 @@
 # Emby服务器直连
 DOMAIN-SUFFIX,howru.site
+IP-CIDR,193.122.108.155/32,DIRECT
