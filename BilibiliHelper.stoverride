@@ -1,0 +1,68 @@
+name: |-
+  Bilibili Helper
+desc: |-
+  MITM over HTTP/2 && IOS >= 15
+
+http:
+
+  mitm:
+    - "grpc.biliapi.net"
+    - "app.bilibili.com"
+
+  script:
+    - match: ^https:\/\/app\.bilibili\.com\/x\/v2\/(splash|search\?|feed\/index)
+      name: "bilibili.helper.v2_11"
+      type: response
+      require-body: true
+      max-size: -1
+      binary-mode: false
+
+    - match: ^https:\/\/grpc\.biliapi\.net\/bilibili\.community\.service\.dm\.v1\.DM\/DmView
+      name: "bilibili.helper.dmView_12"
+      type: response
+      require-body: true
+      max-size: -1
+      binary-mode: true
+
+    - match: ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus
+      name: "bilibili.helper.dmView_12"
+      type: response
+      require-body: true
+      max-size: -1
+      binary-mode: true
+
+    - match: ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(view|viewunite)\.v1\.View\/(View|ViewProgress)$
+      name: "bilibili.helper.dmView_12"
+      type: response
+      require-body: true
+      max-size: -1
+      binary-mode: true
+
+    - match: ^https:\/\/grpc\.biliapi\.net\/bilibili\.main\.community\.reply\.v1\.Reply\/MainList
+      name: "bilibili.helper.dmView_12"
+      type: response
+      require-body: true
+      max-size: -1
+      binary-mode: true
+
+    - match: ^https:\/\/grpc\.biliapi\.net\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$
+      name: "bilibili.helper.dmView_12"
+      type: response
+      require-body: true
+      max-size: -1
+      binary-mode: true
+
+    - match: ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$
+      name: "bilibili.helper.dmView_12"
+      type: response
+      require-body: true
+      max-size: -1
+      binary-mode: true
+
+script-providers:
+  "bilibili.helper.v2_11":
+    url: https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Bilibili/dist/bilibili.helper.v2.beta.js
+    interval: 86400
+  "bilibili.helper.dmView_12":
+    url: https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Bilibili/dist/bilibili.helper.beta.js
+    interval: 86400
